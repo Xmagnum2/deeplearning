@@ -20,10 +20,11 @@ class Human(Player):
         super().__init__(name)
 
     def play(self, game) -> None:
+        game.print_board()
         while True:
             move = input("位置：")
             if move.isnumeric() and int(move) in game.move_list:
-                game.play(move)
+                game.play(int(move))
                 return
 
 
