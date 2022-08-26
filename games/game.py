@@ -7,6 +7,8 @@ class Result(Enum):
     FIRST = auto()
     SECOND = auto()
     DRAW = auto()
+    WIN = auto()
+    LOSS = auto()
 
 
 class Game(metaclass=abc.ABCMeta):

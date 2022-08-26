@@ -1,6 +1,5 @@
 from games.game import Game
 import abc
-import random
 import sys
 
 sys.path.append("../")
@@ -14,26 +13,14 @@ class Player(metaclass=abc.ABCMeta):
     def play(self, game: Game) -> None:
         raise NotImplementedError
 
+    def reset(self) -> None:
+        pass
 
-class Human(Player):
-    def __init__(self, name: str = "Human"):
-        super().__init__(name)
+    def learn(self, result) -> None:
+        pass
 
-    def play(self, game) -> None:
-        game.print_board()
-        while True:
-            move = input("位置：")
-            if move.isnumeric() and int(move) in game.move_list:
-                game.play(int(move))
-                return
+    def export_file(self):
+        pass
 
-
-class Random(Player):
-    def __init__(self, name: str = "Human"):
-        super().__init__(name)
-
-    def play(self, game) -> None:
-        while True:
-            move = random.choice(game.move_list)
-            game.play(move)
-            return
+    def import_file(self):
+        pass
